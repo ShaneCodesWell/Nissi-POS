@@ -11,17 +11,17 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Styles / Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/products.js', 'resources/js/sales.js', 'resources/js/reports.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/terminal.js'])
 </head>
 
 <body class="bg-gray-900 min-h-screen">
     <div class="flex h-screen overflow-hidden">
-        <x-sidebar />
+        <x-terminal-sidebar />
         <!-- Main Content Area -->
         <div class="flex-1 flex flex-col overflow-hidden">
-            <x-navbar />
+            <x-terminal-navbar />
             <!-- Main Content -->
             <main class="flex-1 overflow-y-auto bg-gray-900 p-6">
                 {{ $slot }}

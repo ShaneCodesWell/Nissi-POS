@@ -17,6 +17,26 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    public function product()
+    {
+        return view('admin.product');
+    }
+
+    public function sales()
+    {
+        return view('admin.sales');
+    }
+
+    public function reports()
+    {
+        return view('admin.reports');
+    }
+
+    public function crm()
+    {
+        return view('admin.crm');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
