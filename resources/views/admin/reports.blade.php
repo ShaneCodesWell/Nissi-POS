@@ -18,7 +18,7 @@
                         <span>Export PDF</span>
                     </button>
                     <button
-                        class="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all flex items-center space-x-2 shadow-lg shadow-emerald-500/30">
+                        class="px-6 py-3 bg-linear-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all flex items-center space-x-2 shadow-lg shadow-emerald-500/30">
                         <i class="fas fa-sync-alt"></i>
                         <span>Refresh Data</span>
                     </button>
@@ -90,7 +90,7 @@
                             </p>
                         </div>
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 rounded-lg flex items-center justify-center">
+                            class="w-12 h-12 bg-linear-to-br from-emerald-500/20 to-emerald-600/20 rounded-lg flex items-center justify-center">
                             <i class="fas fa-chart-line text-xl text-emerald-400"></i>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                             </p>
                         </div>
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 rounded-lg flex items-center justify-center">
+                            class="w-12 h-12 bg-linear-to-br from-cyan-500/20 to-cyan-600/20 rounded-lg flex items-center justify-center">
                             <i class="fas fa-shopping-bag text-xl text-cyan-400"></i>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                             </p>
                         </div>
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
+                            class="w-12 h-12 bg-linear-to-br from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center">
                             <i class="fas fa-dollar-sign text-xl text-purple-400"></i>
                         </div>
                     </div>
@@ -135,7 +135,7 @@
                             </p>
                         </div>
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-lg flex items-center justify-center">
+                            class="w-12 h-12 bg-linear-to-br from-orange-500/20 to-orange-600/20 rounded-lg flex items-center justify-center">
                             <i class="fas fa-users text-xl text-orange-400"></i>
                         </div>
                     </div>
@@ -237,7 +237,7 @@
                         <span>Share</span>
                     </button>
                     <button
-                        class="px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-lg transition-all flex items-center space-x-2">
+                        class="px-4 py-2 bg-linear-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-lg transition-all flex items-center space-x-2">
                         <i class="fas fa-file-export"></i>
                         <span>Export</span>
                     </button>
@@ -245,5 +245,5 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </x-layouts.admin>

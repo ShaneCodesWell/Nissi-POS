@@ -9,6 +9,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// POS terminal
 Route::get('/terminal', [TerminalController::class, 'index'])->name('pos.index');
 
 // Admin Routes

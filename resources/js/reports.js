@@ -1,3 +1,5 @@
+import Chart from 'chart.js/auto';
+
 document.addEventListener("DOMContentLoaded", () => {
     // Theme toggle
     document.getElementById("themeToggle").addEventListener("click", () => {
@@ -54,9 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Chart initialization
-    document.addEventListener("DOMContentLoaded", function () {
-        initializeCharts();
-    });
+    initializeCharts(); 
 
     function initializeCharts() {
         // Revenue Trend Chart (Line Chart)

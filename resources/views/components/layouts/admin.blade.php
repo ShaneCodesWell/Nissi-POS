@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <!-- Styles / Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/products.js', 'resources/js/sales.js', 'resources/js/reports.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/products.js', 'resources/js/sales.js', 'resources/js/reports.js', 'resources/js/crm.js'])
 </head>
 
 <body class="bg-gray-900 min-h-screen">

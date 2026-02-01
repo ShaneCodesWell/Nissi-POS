@@ -21,37 +21,53 @@
 
     <!-- Navigation Section -->
     <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
-        <a href="#"
-            class="nav-item active-link flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
+        <a href="{{ route('pos.index') }}"
+            class="nav-item {{ request()->routeIs('pos.index') ? 'active-link' : 'hover:bg-slate-800/50' }} flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
+            <div class="icon-wrapper w-9 h-9 {{ request()->routeIs('pos.index') ? 'bg-linear-to-br from-emerald-500/20 to-cyan-500/20' : 'bg-slate-800/50' }} rounded-lg flex items-center justify-center">
+                <i class="fas fa-cash-register {{ request()->routeIs('pos.index') ? 'text-emerald-400' : 'text-slate-400 group-hover:text-cyan-400' }} text-sm transition-colors"></i>
+            </div>
+            <span class="font-medium text-sm {{ request()->routeIs('pos.index') ? 'text-white' : 'text-slate-300 group-hover:text-white' }} transition-colors">Terminal</span>
+        </a>
+        
+        <a href="{{ route('admin.index') }}"
+            class="nav-item {{ request()->routeIs('admin.index') ? 'active-link' : 'hover:bg-slate-800/50' }} flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
             <div
-                class="icon-wrapper w-9 h-9 bg-linear-to-br from-emerald-500/20 to-cyan-500/20 rounded-lg flex items-center justify-center">
-                <i class="fas fa-home text-emerald-400 text-sm"></i>
+                class="icon-wrapper w-9 h-9 {{ request()->routeIs('admin.index') ? 'bg-linear-to-br from-emerald-500/20 to-cyan-500/20' : 'bg-slate-800/50' }} rounded-lg flex items-center justify-center">
+                <i class="fas fa-home {{ request()->routeIs('admin.index') ? 'text-emerald-400' : 'text-slate-400 group-hover:text-cyan-400' }} text-sm transition-colors"></i>
             </div>
-            <span class="font-medium text-sm">Dashboard</span>
+            <span class="font-medium text-sm {{ request()->routeIs('admin.index') ? 'text-white' : 'text-slate-300 group-hover:text-white' }} transition-colors">Dashboard</span>
         </a>
 
-        <a href="#"
-            class="nav-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800/50 transition-all duration-300 group">
-            <div class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center">
-                <i class="fas fa-box-open text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"></i>
+        <a href="{{ route('admin.product') }}"
+            class="nav-item {{ request()->routeIs('admin.product') ? 'active-link' : 'hover:bg-slate-800/50' }} flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
+            <div class="icon-wrapper w-9 h-9 {{ request()->routeIs('admin.product') ? 'bg-linear-to-br from-emerald-500/20 to-cyan-500/20' : 'bg-slate-800/50' }} rounded-lg flex items-center justify-center">
+                <i class="fas fa-box-open {{ request()->routeIs('admin.product') ? 'text-emerald-400' : 'text-slate-400 group-hover:text-cyan-400' }} text-sm transition-colors"></i>
             </div>
-            <span class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors">Products</span>
+            <span class="font-medium text-sm {{ request()->routeIs('admin.product') ? 'text-white' : 'text-slate-300 group-hover:text-white' }} transition-colors">Products</span>
         </a>
 
-        <a href="#"
-            class="nav-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800/50 transition-all duration-300 group">
-            <div class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center">
-                <i class="fas fa-shopping-cart text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"></i>
+        <a href="{{ route('admin.sales') }}"
+            class="nav-item {{ request()->routeIs('admin.sales') ? 'active-link' : 'hover:bg-slate-800/50' }} flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
+            <div class="icon-wrapper w-9 h-9 {{ request()->routeIs('admin.sales') ? 'bg-linear-to-br from-emerald-500/20 to-cyan-500/20' : 'bg-slate-800/50' }} rounded-lg flex items-center justify-center">
+                <i class="fas fa-shopping-cart {{ request()->routeIs('admin.sales') ? 'text-emerald-400' : 'text-slate-400 group-hover:text-cyan-400' }} text-sm transition-colors"></i>
             </div>
-            <span class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors">Sales</span>
+            <span class="font-medium text-sm {{ request()->routeIs('admin.sales') ? 'text-white' : 'text-slate-300 group-hover:text-white' }} transition-colors">Sales</span>
         </a>
 
-        <a href="#"
-            class="nav-item flex items-center gap-3 p-3 rounded-xl hover:bg-slate-800/50 transition-all duration-300 group">
-            <div class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center">
-                <i class="fas fa-chart-line text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"></i>
+        <a href="{{ route('admin.crm') }}"
+            class="nav-item {{ request()->routeIs('admin.crm') ? 'active-link' : 'hover:bg-slate-800/50' }} flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
+            <div class="icon-wrapper w-9 h-9 {{ request()->routeIs('admin.crm') ? 'bg-linear-to-br from-emerald-500/20 to-cyan-500/20' : 'bg-slate-800/50' }} rounded-lg flex items-center justify-center">
+                <i class="fas fa-users {{ request()->routeIs('admin.crm') ? 'text-emerald-400' : 'text-slate-400 group-hover:text-cyan-400' }} text-sm transition-colors"></i>
             </div>
-            <span class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors">Reports</span>
+            <span class="font-medium text-sm {{ request()->routeIs('admin.crm') ? 'text-white' : 'text-slate-300 group-hover:text-white' }} transition-colors">CRM</span>
+        </a>
+
+        <a href="{{ route('admin.reports') }}"
+            class="nav-item {{ request()->routeIs('admin.reports') ? 'active-link' : 'hover:bg-slate-800/50' }} flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
+            <div class="icon-wrapper w-9 h-9 {{ request()->routeIs('admin.reports') ? 'bg-linear-to-br from-emerald-500/20 to-cyan-500/20' : 'bg-slate-800/50' }} rounded-lg flex items-center justify-center">
+                <i class="fas fa-chart-line {{ request()->routeIs('admin.reports') ? 'text-emerald-400' : 'text-slate-400 group-hover:text-cyan-400' }} text-sm transition-colors"></i>
+            </div>
+            <span class="font-medium text-sm {{ request()->routeIs('admin.reports') ? 'text-white' : 'text-slate-300 group-hover:text-white' }} transition-colors">Reports</span>
         </a>
     </nav>
 
