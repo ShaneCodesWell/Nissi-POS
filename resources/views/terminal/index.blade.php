@@ -32,7 +32,8 @@
             </div>
 
             <!-- Products Grid -->
-            <div id="productsGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto flex-1">
+            <div id="productsGrid"
+                class="flex-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-max gap-4 overflow-y-auto">
                 <!-- Products will be dynamically inserted here -->
             </div>
         </div>

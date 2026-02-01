@@ -30,7 +30,7 @@
             <span class="font-medium text-sm text-white">Terminal</span>
         </a>
 
-        <a href="#" id="nav-products"
+        {{-- <a href="#" id="nav-products"
             class="nav-item hover:bg-slate-800/50 flex items-center gap-3 p-3 rounded-xl transition-all duration-300 group">
             <div class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center">
                 <i class="fas fa-box-open text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"></i>
@@ -44,7 +44,7 @@
                 <i class="fas fa-shopping-cart text-slate-400 text-sm group-hover:text-cyan-400 transition-colors"></i>
             </div>
             <span class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors">Sales</span>
-        </a>
+        </a> --}}
 
     </nav>
 

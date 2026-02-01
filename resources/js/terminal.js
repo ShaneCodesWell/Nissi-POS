@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .map(
             (product) => `
           <div class="product-card bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 hover:border-emerald-500/50" data-id="${product.id}">
-            <div class="w-16 h-16 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mb-3 mx-auto">
+            <div class="w-16 h-16 bg-linear-to-br from-emerald-500/20 to-cyan-500/20 rounded-xl flex items-center justify-center mb-3 mx-auto">
               <i class="fas fa-${product.icon} text-3xl text-emerald-400"></i>
             </div>
             <h3 class="text-white font-semibold text-sm text-center mb-2">${product.name}</h3>
