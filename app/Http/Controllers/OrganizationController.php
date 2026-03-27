@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreOragnizationRequest;
-use App\Http\Requests\UpdateOragnizationRequest;
-use App\Models\Oragnization;
+use App\Http\Requests\StoreOrganizationRequest;
+use App\Http\Requests\UpdateOrganizationRequest;
+use App\Models\Organization;
 
-class OragnizationController extends Controller
+class OrganizationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class OragnizationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOragnizationRequest $request)
+    public function store(StoreOrganizationRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class OragnizationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Oragnization $oragnization)
+    public function show(Organization $organization)
     {
         //
     }
@@ -43,7 +43,7 @@ class OragnizationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Oragnization $oragnization)
+    public function edit(Organization $organization)
     {
         //
     }
@@ -51,7 +51,7 @@ class OragnizationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOragnizationRequest $request, Oragnization $oragnization)
+    public function update(UpdateOrganizationRequest $request, Organization $organization)
     {
         //
     }
@@ -59,7 +59,7 @@ class OragnizationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Oragnization $oragnization)
+    public function destroy(Organization $organization)
     {
         //
     }

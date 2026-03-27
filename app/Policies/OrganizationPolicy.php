@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Oragnization;
+use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class OragnizationPolicy
+class OrganizationPolicy
 {
     /**
      * Determine whether the user can view any models.
@@ -19,7 +19,7 @@ class OragnizationPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Oragnization $oragnization): bool
+    public function view(User $user, Organization $organization): bool
     {
         return false;
     }
@@ -35,7 +35,7 @@ class OragnizationPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Oragnization $oragnization): bool
+    public function update(User $user, Organization $organization): bool
     {
         return false;
     }
@@ -43,7 +43,7 @@ class OragnizationPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Oragnization $oragnization): bool
+    public function delete(User $user, Organization $organization): bool
     {
         return false;
     }
@@ -51,7 +51,7 @@ class OragnizationPolicy
     /**
      * Determine whether the user can restore the model.
      */
-    public function restore(User $user, Oragnization $oragnization): bool
+    public function restore(User $user, Organization $organization): bool
     {
         return false;
     }
@@ -59,7 +59,7 @@ class OragnizationPolicy
     /**
      * Determine whether the user can permanently delete the model.
      */
-    public function forceDelete(User $user, Oragnization $oragnization): bool
+    public function forceDelete(User $user, Organization $organization): bool
     {
         return false;
     }
