@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Customers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCustomerRequest;
+use App\Http\Requests\Customers\StoreCustomerRequest;
 use App\Models\Customer;
 use App\Models\Organization;
 use Illuminate\Http\JsonResponse;

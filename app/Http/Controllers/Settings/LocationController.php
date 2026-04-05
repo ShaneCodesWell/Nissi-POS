@@ -1,15 +1,13 @@
 <?php
-
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreLocationRequest;
+use App\Http\Requests\Settings\StoreLocationRequest;
 use App\Models\Location;
 use App\Models\Organization;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class LocationController extends Controller
 {
@@ -21,9 +19,9 @@ class LocationController extends Controller
     public function index(Organization $organization): JsonResponse
     {
         $locations = $organization->locations()
-                                  ->withCount(['terminals', 'activeUsers'])
-                                  ->orderBy('name')
-                                  ->get();
+            ->withCount(['terminals', 'activeUsers'])
+            ->orderBy('name')
+            ->get();
 
         return response()->json(['locations' => $locations]);
     }
@@ -58,8 +56,8 @@ class LocationController extends Controller
      */
     public function update(
         StoreLocationRequest $request,
-        Organization         $organization,
-        Location             $location,
+        Organization $organization,
+        Location $location,
     ): JsonResponse {
         $this->authoriseLocation($organization, $location);
 
@@ -77,9 +75,9 @@ class LocationController extends Controller
      * POST /organizations/{organization}/locations/{location}/users
      */
     public function assignUser(
-        Request      $request,
+        Request $request,
         Organization $organization,
-        Location     $location,
+        Location $location,
     ): JsonResponse {
         $this->authoriseLocation($organization, $location);
 
@@ -108,8 +106,8 @@ class LocationController extends Controller
      */
     public function removeUser(
         Organization $organization,
-        Location     $location,
-        User         $user,
+        Location $location,
+        User $user,
     ): JsonResponse {
         $this->authoriseLocation($organization, $location);
 

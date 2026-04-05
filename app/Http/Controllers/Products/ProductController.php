@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProductRequest;
-// use App\Http\Requests\UpdateProductRequest;
+use App\Http\Requests\Products\StoreProductRequest;
 use App\Models\Organization;
 use App\Models\Product;
 use Illuminate\Http\JsonResponse;
@@ -29,8 +27,8 @@ class ProductController extends Controller
         ]);
 
         $query = $organization->products()
-                              ->with(['category', 'activeVariants'])
-                              ->orderBy('name');
+            ->with(['category', 'activeVariants'])
+            ->orderBy('name');
 
         if ($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
@@ -105,8 +103,8 @@ class ProductController extends Controller
      */
     public function update(
         StoreProductRequest $request,
-        Organization        $organization,
-        Product             $product,
+        Organization $organization,
+        Product $product,
     ): JsonResponse {
         $this->authoriseProduct($organization, $product);
 

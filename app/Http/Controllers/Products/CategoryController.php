@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Http\Controllers\Products;
 
 use App\Http\Controllers\Controller;
-// use App\Http\Requests\Products\StoreCategoryRequest;
-use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\Products\StoreCategoryRequest;
 use App\Models\Category;
 use App\Models\Organization;
 use Illuminate\Http\JsonResponse;
@@ -21,11 +19,11 @@ class CategoryController extends Controller
     public function index(Organization $organization): JsonResponse
     {
         $categories = $organization->categories()
-                                   ->with('allChildren')
-                                   ->whereNull('parent_id')
-                                   ->where('is_active', true)
-                                   ->orderBy('sort_order')
-                                   ->get();
+            ->with('allChildren')
+            ->whereNull('parent_id')
+            ->where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
 
         return response()->json(['categories' => $categories]);
     }
@@ -60,8 +58,8 @@ class CategoryController extends Controller
      */
     public function update(
         StoreCategoryRequest $request,
-        Organization         $organization,
-        Category             $category,
+        Organization $organization,
+        Category $category,
     ): JsonResponse {
         $this->authoriseCategory($organization, $category);
 

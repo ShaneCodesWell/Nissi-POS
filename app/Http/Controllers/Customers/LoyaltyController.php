@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Customers\RedeemPointsRequest;
 use App\Models\Customer;
 use App\Models\Organization;
-use App\Models\Sale;
 use App\Models\Sales;
 use App\Services\LoyaltyService;
 use Illuminate\Http\JsonResponse;
