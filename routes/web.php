@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\TerminalController;
+use App\Http\Controllers\PaymentsController;
+use App\Http\Controllers\SalesController;
+use App\Http\Controllers\Terminal\TerminalController as TerminalTerminalController;
+// use App\Http\Controllers\TerminalController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -10,7 +13,7 @@ Route::get('/', function () {
 });
 
 // POS terminal
-Route::get('/terminal', [TerminalController::class, 'index'])->name('pos.index');
+Route::get('/terminal', [TerminalTerminalController::class, 'index'])->name('pos.index');
 
 // Admin Routes
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -20,3 +23,33 @@ Route::get('/admin/product', [AdminController::class, 'product'])->name('admin.p
 Route::get('/admin/sales', [AdminController::class, 'sales'])->name('admin.sales');
 Route::get('/admin/reports', [AdminController::class, 'reports'])->name('admin.reports');
 Route::get('/admin/crm', [AdminController::class, 'crm'])->name('admin.crm');
+
+// Route::prefix('terminal/{terminal}')->group(function () {
+//     Route::get('/', [TerminalController::class, 'session']);
+//     Route::get('customers/search', [TerminalController::class, 'searchCustomers']);
+//     Route::get('pending-sales', [TerminalController::class, 'pendingSales']);
+
+//     Route::prefix('sales')->group(function () {
+//         Route::post('/',                           [SalesController::class, 'open']);
+//         Route::get('/{sale}',                      [SalesController::class, 'show']);
+//         Route::post('/{sale}/items',               [SalesController::class, 'addItem']);
+//         Route::patch('/{sale}/items/{saleItem}',   [SalesController::class, 'updateItem']);
+//         Route::delete('/{sale}/items/{saleItem}',  [SalesController::class, 'removeItem']);
+//         Route::post('/{sale}/customer',            [SalesController::class, 'attachCustomer']);
+//         Route::delete('/{sale}/customer',          [SalesController::class, 'detachCustomer']);
+
+//         Route::post('/{sale}/payments/cash',        [PaymentsController::class, 'cash']);
+//         Route::post('/{sale}/payments/card',        [PaymentsController::class, 'card']);
+//         Route::post('/{sale}/payments/mobile-money',[PaymentsController::class, 'mobileMoney']);
+//         Route::post('/{sale}/payments/split',       [PaymentsController::class, 'split']);
+//         Route::get('/{sale}/payments/outstanding',  [PaymentsController::class, 'outstanding']);
+
+//         Route::post('/{sale}/discount/preview', [CheckoutController::class, 'previewDiscount']);
+//         Route::post('/{sale}/discount',         [CheckoutController::class, 'applyDiscount']);
+//         Route::delete('/{sale}/discount',       [CheckoutController::class, 'removeDiscount']);
+//         Route::post('/{sale}/complete',         [CheckoutController::class, 'complete']);
+//         Route::post('/{sale}/void',             [CheckoutController::class, 'void']);
+//         Route::get('/{sale}/receipt',           [CheckoutController::class, 'receipt']);
+//         Route::post('/{sale}/receipt/print',    [CheckoutController::class, 'printReceipt']);
+//     });
+// });
