@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Terminal;
 
 use App\Http\Controllers\Controller;
@@ -9,7 +8,7 @@ use App\Models\Terminal;
 use App\Services\PaymentService;
 use Illuminate\Http\JsonResponse;
 
-class PaymentController extends Controller
+class PaymentsController extends Controller
 {
     public function __construct(
         protected PaymentService $paymentService,
@@ -30,8 +29,8 @@ class PaymentController extends Controller
         $this->authoriseSale($terminal, $sale);
 
         $payment = $this->paymentService->recordCash(
-            sale:            $sale,
-            amountTendered:  $request->amount,
+            sale: $sale,
+            amountTendered: $request->amount,
         );
 
         return response()->json([
@@ -52,10 +51,10 @@ class PaymentController extends Controller
         $this->authoriseSale($terminal, $sale);
 
         $payment = $this->paymentService->recordCard(
-            sale:          $sale,
-            amount:        $request->amount,
-            provider:      $request->provider,
-            reference:     $request->reference,
+            sale: $sale,
+            amount: $request->amount,
+            provider: $request->provider,
+            reference: $request->reference,
             accountNumber: $request->account_number,
         );
 
@@ -76,10 +75,10 @@ class PaymentController extends Controller
         $this->authoriseSale($terminal, $sale);
 
         $payment = $this->paymentService->recordMobileMoney(
-            sale:          $sale,
-            amount:        $request->amount,
-            provider:      $request->provider,
-            reference:     $request->reference,
+            sale: $sale,
+            amount: $request->amount,
+            provider: $request->provider,
+            reference: $request->reference,
             accountNumber: $request->account_number,
         );
 
@@ -106,7 +105,7 @@ class PaymentController extends Controller
         $this->authoriseSale($terminal, $sale);
 
         $payments = $this->paymentService->recordSplit(
-            sale:     $sale,
+            sale: $sale,
             payments: $request->payments,
         );
 
@@ -133,10 +132,10 @@ class PaymentController extends Controller
         $this->authoriseSale($terminal, $sale);
 
         return response()->json([
-            'total_amount'    => (float) $sale->total_amount,
-            'amount_paid'     => $this->paymentService->totalPaid($sale),
-            'outstanding'     => $sale->amountOutstanding(),
-            'breakdown'       => $this->paymentService->paymentBreakdown($sale),
+            'total_amount' => (float) $sale->total_amount,
+            'amount_paid'  => $this->paymentService->totalPaid($sale),
+            'outstanding'  => $sale->amountOutstanding(),
+            'breakdown'    => $this->paymentService->paymentBreakdown($sale),
         ]);
     }
 

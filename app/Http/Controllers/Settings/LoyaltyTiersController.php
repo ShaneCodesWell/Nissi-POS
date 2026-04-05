@@ -7,7 +7,7 @@ use App\Models\Organization;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
-class LoyaltyTierController extends Controller
+class LoyaltyTiersController extends Controller
 {
     /**
      * List all loyalty tiers for an organization ordered lowest to highest.

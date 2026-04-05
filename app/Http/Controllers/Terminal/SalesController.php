@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Terminal;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreSalesRequest;

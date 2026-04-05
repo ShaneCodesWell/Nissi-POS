@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\SalesController;
+use App\Http\Controllers\Terminal\SalesController;
 use App\Http\Controllers\Terminal\TerminalController;
-use App\Http\Controllers\Terminal\PaymentController;
+use App\Http\Controllers\Terminal\PaymentsController;
 use App\Http\Controllers\Terminal\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,11 +39,11 @@ Route::prefix('terminal/{terminal}')->group(function () {
         Route::post('/{sale}/customer',            [SalesController::class, 'attachCustomer']);
         Route::delete('/{sale}/customer',          [SalesController::class, 'detachCustomer']);
 
-        Route::post('/{sale}/payments/cash',        [PaymentController::class, 'cash']);
-        Route::post('/{sale}/payments/card',        [PaymentController::class, 'card']);
-        Route::post('/{sale}/payments/mobile-money',[PaymentController::class, 'mobileMoney']);
-        Route::post('/{sale}/payments/split',       [PaymentController::class, 'split']);
-        Route::get('/{sale}/payments/outstanding',  [PaymentController::class, 'outstanding']);
+        Route::post('/{sale}/payments/cash',        [PaymentsController::class, 'cash']);
+        Route::post('/{sale}/payments/card',        [PaymentsController::class, 'card']);
+        Route::post('/{sale}/payments/mobile-money',[PaymentsController::class, 'mobileMoney']);
+        Route::post('/{sale}/payments/split',       [PaymentsController::class, 'split']);
+        Route::get('/{sale}/payments/outstanding',  [PaymentsController::class, 'outstanding']);
 
         Route::post('/{sale}/discount/preview', [CheckoutController::class, 'previewDiscount']);
         Route::post('/{sale}/discount',         [CheckoutController::class, 'applyDiscount']);
