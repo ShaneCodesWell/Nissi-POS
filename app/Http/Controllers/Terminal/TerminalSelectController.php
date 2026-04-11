@@ -15,11 +15,20 @@ class TerminalSelectController extends Controller
      */
     public function index(Request $request): View
     {
-        $locations = $request->user()
-            ->locations()
-            ->wherePivot('is_active', true)
-            ->with('activeTerminals')
-            ->get();
+        $user = $request->user();
+
+        if ($user->isAdmin()) {
+            // Admins see all active locations and their terminals
+            $locations = \App\Models\Location::with('activeTerminals')
+                ->where('is_active', true)
+                ->get();
+        } else {
+            // Cashiers only see their assigned locations
+            $locations = $user->locations()
+                ->wherePivot('is_active', true)
+                ->with('activeTerminals')
+                ->get();
+        }
 
         return view('terminal.select', compact('locations'));
     }

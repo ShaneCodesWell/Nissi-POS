@@ -84,22 +84,22 @@ class Sales extends Model
 
     public function items(): HasMany
     {
-        return $this->hasMany(SaleItems::class);
+        return $this->hasMany(SaleItems::class, 'sale_id');
     }
 
     public function payments(): HasMany
     {
-        return $this->hasMany(Payments::class);
+        return $this->hasMany(Payments::class, 'sale_id');
     }
 
     public function receipt(): HasOne
     {
-        return $this->hasOne(Receipts::class);
+        return $this->hasOne(Receipts::class, 'sale_id');
     }
 
     public function loyaltyTransactions(): HasMany
     {
-        return $this->hasMany(LoyaltyTransaction::class);
+        return $this->hasMany(LoyaltyTransaction::class, 'sale_id');
     }
 
     // Helpers

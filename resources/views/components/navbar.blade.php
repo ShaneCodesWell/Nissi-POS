@@ -29,12 +29,16 @@
             <!-- User Profile -->
             <div class="flex items-center gap-3 pl-4 border-l border-slate-700">
                 <div class="text-right hidden sm:block">
-                    <p class="text-sm font-medium text-white">Admin User</p>
-                    <p class="text-xs text-slate-400">admin@pospay.com</p>
+                    <p class="text-sm font-medium text-white">
+                        {{ Auth::user()->name }}
+                    </p>
+                    <p class="text-xs text-slate-400">
+                        {{ Auth::user()->email }}
+                    </p>
                 </div>
                 <div
                     class="w-10 h-10 bg-linear-to-br from-emerald-400 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold">
-                    AU
+                    {{ collect(explode(' ', Auth::user()->name))->map(fn($word) => strtoupper(substr($word, 0, 1)))->take(2)->implode('') }}
                 </div>
             </div>
         </div>
