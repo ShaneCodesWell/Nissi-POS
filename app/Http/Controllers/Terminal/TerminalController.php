@@ -103,16 +103,80 @@ class TerminalController extends Controller
     }
 
     // -------------------------------------------------------------------------
-    // Pending sale recovery
+    // Quick customer creation at the terminal
     // -------------------------------------------------------------------------
 
     /**
-     * Retrieve any pending (incomplete) sales for this terminal.
-     * Allows a cashier to resume a sale after a page refresh or
-     * browser restart.
+     * Create a new customer record quickly at the point of sale.
+     * Only requires first name and phone — full profile can be
+     * completed later from the admin CRM section.
      *
-     * GET /terminal/{terminal}/pending-sales
+     * POST /terminal/{terminal}/customers
      */
+    public function createCustomer(Request $request, Terminal $terminal): JsonResponse
+    {
+        $validated = $request->validate([
+            'first_name' => ['required', 'string', 'max:100'],
+            'last_name'  => ['sometimes', 'nullable', 'string', 'max:100'],
+            'phone'      => [
+                'required',
+                'string',
+                'max:30',
+                // Phone must be unique within the organisation
+                \Illuminate\Validation\Rule::unique('customers')
+                    ->where('organization_id', $terminal->location->organization_id),
+            ],
+            'email'      => [
+                'sometimes',
+                'nullable',
+                'email',
+                \Illuminate\Validation\Rule::unique('customers')
+                    ->where('organization_id', $terminal->location->organization_id),
+            ],
+        ], [
+            'first_name.required' => 'Customer name is required.',
+            'phone.required'      => 'A phone number is required.',
+            'phone.unique'        => 'A customer with this phone number already exists.',
+            'email.unique'        => 'A customer with this email already exists.',
+        ]);
+
+        $organization = $terminal->location->organization;
+
+        // Assign the lowest loyalty tier automatically if one exists
+        $defaultTier = $organization->loyaltyTiers()
+            ->where('is_active', true)
+            ->orderBy('min_points')
+            ->first();
+
+        $customer = $organization->customers()->create([
+            'first_name'      => $validated['first_name'],
+            'last_name'       => $validated['last_name'] ?? null,
+            'phone'           => $validated['phone'],
+            'email'           => $validated['email'] ?? null,
+            'loyalty_tier_id' => $defaultTier?->id,
+            'points_balance'  => 0,
+            'is_active'       => true,
+        ]);
+
+        return response()->json([
+            'message'  => 'Customer created.',
+            'customer' => [
+                'id'             => $customer->id,
+                'name'           => $customer->fullName(),
+                'initials'       => $customer->initials(),
+                'phone'          => $customer->phone,
+                'email'          => $customer->email,
+                'points_balance' => 0,
+                'loyalty_tier'   => $defaultTier?->name,
+                'tier_color'     => $defaultTier?->color,
+            ],
+        ], 201);
+    }
+
+    // -------------------------------------------------------------------------
+    // Pending sale recovery
+    // -------------------------------------------------------------------------
+
     public function pendingSales(Terminal $terminal): JsonResponse
     {
         $sales = $terminal->sales()

@@ -29,7 +29,10 @@ Route::middleware('auth')->group(function () {
     // ─── Terminal API routes ──────────────────────────────────────────────────
     Route::prefix('terminal/{terminal}')->group(function () {
         Route::get('/session', [TerminalController::class, 'session']);
+
+        // Get Customers
         Route::get('/customers/search', [TerminalController::class, 'searchCustomers']);
+        Route::post('/customers', [TerminalController::class, 'createCustomer']);
         Route::get('/pending-sales', [TerminalController::class, 'pendingSales']);
 
         Route::prefix('sales')->group(function () {

@@ -53,6 +53,45 @@
                 </p>
             </div>
 
+            <!-- Customer Panel -->
+            <div class="px-6 pt-4">
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-user text-slate-500 text-xs"></i>
+                    </div>
+                    <input type="text" id="customerSearch"
+                        class="w-full bg-slate-700/30 border border-slate-600/50 rounded-xl pl-8 pr-4 py-2.5
+                   text-white text-sm placeholder-slate-500
+                   focus:outline-none focus:border-emerald-500/50 transition-colors"
+                        placeholder="Search customer by name or phone..." autocomplete="off" />
+                </div>
+
+                <!-- Search results / create button appear here -->
+                <div id="customerSearchResults" class="mt-2 space-y-2"></div>
+
+                <!-- Attached customer display — shown when a customer is on the sale -->
+                <div id="attachedCustomer"
+                    class="hidden mt-2 p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div id="customerInitials"
+                                class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center
+                           text-emerald-400 text-xs font-semibold">
+                                --
+                            </div>
+                            <div>
+                                <p id="customerName" class="text-white text-sm font-medium">--</p>
+                                <p id="customerPoints" class="text-emerald-400 text-xs">0 pts</p>
+                            </div>
+                        </div>
+                        <button id="detachCustomerBtn" class="text-slate-500 hover:text-red-400 transition-colors"
+                            title="Remove customer">
+                            <i class="fas fa-times text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             <!-- Discount Display -->
             <div id="discountDisplay"
                 class="mx-6 mt-4 mb-2 p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg hidden">
