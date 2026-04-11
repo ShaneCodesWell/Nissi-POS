@@ -58,14 +58,21 @@
             <span class="font-medium text-sm text-slate-300 group-hover:text-white transition-colors">Settings</span>
         </a>
 
-        <a href="#"
-            class="flex items-center gap-3 p-3 rounded-xl hover:bg-red-500/10 transition-all duration-300 group">
-            <div
-                class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center group-hover:bg-red-500/20">
-                <i class="fas fa-sign-out-alt text-slate-400 text-sm group-hover:text-red-400 transition-colors"></i>
-            </div>
-            <span class="font-medium text-sm text-slate-300 group-hover:text-red-400 transition-colors">Logout</span>
-        </a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit"
+                class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-red-500/10 transition-all duration-300 group text-left">
+                <div
+                    class="icon-wrapper w-9 h-9 bg-slate-800/50 rounded-lg flex items-center justify-center group-hover:bg-red-500/20">
+                    <i
+                        class="fas fa-sign-out-alt text-slate-400 text-sm group-hover:text-red-400 transition-colors"></i>
+                </div>
+
+                <span class="font-medium text-sm text-slate-300 group-hover:text-red-400 transition-colors">
+                    Logout
+                </span>
+            </button>
+        </form>
     </div>
 </div>
 
@@ -73,44 +80,46 @@
     // Terminal Sidebar Active State Handler
     document.addEventListener('DOMContentLoaded', function() {
         const navLinks = document.querySelectorAll('.nav-item');
-        
+
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 // Remove active state from all links
                 navLinks.forEach(nav => {
                     nav.classList.remove('active-link');
                     nav.classList.add('hover:bg-slate-800/50');
-                    
+
                     // Reset icon wrapper
                     const iconWrapper = nav.querySelector('.icon-wrapper');
-                    iconWrapper.classList.remove('bg-linear-to-br', 'from-emerald-500/20', 'to-cyan-500/20');
+                    iconWrapper.classList.remove('bg-linear-to-br',
+                        'from-emerald-500/20', 'to-cyan-500/20');
                     iconWrapper.classList.add('bg-slate-800/50');
-                    
+
                     // Reset icon color
                     const icon = nav.querySelector('i');
                     icon.classList.remove('text-emerald-400');
                     icon.classList.add('text-slate-400', 'group-hover:text-cyan-400');
-                    
+
                     // Reset text color
                     const span = nav.querySelector('span');
                     span.classList.remove('text-white');
                     span.classList.add('text-slate-300', 'group-hover:text-white');
                 });
-                
+
                 // Add active state to clicked link
                 this.classList.add('active-link');
                 this.classList.remove('hover:bg-slate-800/50');
-                
+
                 // Update icon wrapper
                 const iconWrapper = this.querySelector('.icon-wrapper');
-                iconWrapper.classList.add('bg-linear-to-br', 'from-emerald-500/20', 'to-cyan-500/20');
+                iconWrapper.classList.add('bg-linear-to-br', 'from-emerald-500/20',
+                    'to-cyan-500/20');
                 iconWrapper.classList.remove('bg-slate-800/50');
-                
+
                 // Update icon color
                 const icon = this.querySelector('i');
                 icon.classList.add('text-emerald-400');
                 icon.classList.remove('text-slate-400', 'group-hover:text-cyan-400');
-                
+
                 // Update text color
                 const span = this.querySelector('span');
                 span.classList.add('text-white');

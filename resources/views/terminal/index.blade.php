@@ -122,4 +122,12 @@
     </div>
     <x-checkout-modal />
     <x-cash-payment-modal />
+    @push('scripts')
+        <script>
+            const TERMINAL_ID = {{ $terminal->id }};
+            const TERMINAL_NAME = "{{ $terminal->name }}";
+            const LOCATION_ID = {{ $terminal->location_id }};
+            const CSRF_TOKEN = "{{ csrf_token() }}";
+        </script>
+    @endpush
 </x-layouts.terminal>

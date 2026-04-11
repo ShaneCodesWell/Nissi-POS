@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 
 class TerminalController extends Controller
 {
-    public function index()
+    public function index(Terminal $terminal)
     {
-        return view('terminal.index');
+        return view('terminal.index', compact('terminal'));
     }
 
     public function __construct(

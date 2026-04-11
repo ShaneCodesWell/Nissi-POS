@@ -15,7 +15,7 @@
     <!-- Styles / Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/terminal.js'])
 </head>
-
+@stack('scripts')
 <body class="bg-gray-900 min-h-screen">
     <div class="flex h-screen overflow-hidden">
         <x-terminal-sidebar />
